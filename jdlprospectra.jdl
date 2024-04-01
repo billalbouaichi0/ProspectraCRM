@@ -1,0 +1,159 @@
+enum ProdServ {
+    PRODUCT, SERVICE
+}
+enum ProsOp {
+    PROSPECT, OPPORTUNITIES
+}
+enum MarketingModel {
+    B2C, B2B
+}
+enum TypeCompany{
+    Professionnel, Particulier
+}
+enum SecteurActivitie{
+    Prive, Public
+}
+enum FormeJuridique {
+    EURL,
+    SARL,
+    SNC,
+    SPA,
+    SCS,
+    PERSONNE_PHYSIQUE,
+    EUSARL,
+    SSPA,
+    SSARL,
+    SCPA,
+    EPIC,
+    RC,
+    EMIC,
+    EPL,
+    GROUPEMENT,
+    AGENCE,
+    SUCCURSALE
+}
+entity Emails{
+	label String required,
+	mail String required
+}
+entity Phones{
+	label String required,
+	phone String pattern(/^[0-9]+$/)
+}
+entity Contacts {
+    lastName String required minlength(2) maxlength(50),
+    firstName String required minlength(2) maxlength(50),
+    country Long required,
+    region Long,
+    subRegions Long,
+    codePostal String, 
+    address String,
+    birthDay LocalDate,
+}
+
+entity Companies {
+    name String required minlength(2) maxlength(50),
+    country Long required,
+    region Long,
+    subRegions Long,
+    codePostal String,
+	address String,   
+   	type TypeCompany,
+    secteurActivite SecteurActivitie,
+    juridiqueForm FormeJuridique,
+    employeeNumber Long,
+    caa Double
+}
+
+entity Opportunities {
+    name String required,
+    prospectLevel ProsOp required,
+    description String required,
+    amount Double required,
+    creationDate Instant,
+    model MarketingModel
+}
+
+entity Stages {
+    name String unique required,
+    description String required,
+    order Integer 
+}
+
+entity Pipelines {
+    name String required,
+    description String required,
+    creationDate Instant ,
+    owningUser String
+}
+
+entity Products {
+    type ProdServ,
+    designation String required,
+    price Double required
+}
+
+entity Tasks {
+    title String required,
+    type String required,
+    description String,
+    creationDate Instant,
+    dueDate Instant,
+    status String,
+}
+
+entity Notes {
+    title String required,
+    content String required,
+    creationDate Instant
+}
+
+entity Tags {
+    description String required
+}
+//Relations
+relationship ManyToMany {
+    Contacts{tags} to Tags{contacts}
+}
+relationship ManyToMany {
+    Companies{tags} to Tags{companies}
+}
+relationship ManyToMany{
+	Companies{contacts} to Contacts{companies}
+}
+
+
+relationship OneToMany{
+	Pipelines{stages} to Stages
+}
+relationship OneToMany{
+Opportunities{tasks} to Tasks
+}
+relationship OneToMany{
+Opportunities{notes} to Notes
+}
+relationship ManyToMany{
+Opportunities{products} to Products{opportunities}
+}
+relationship OneToMany{
+Stages{opportunities} to Opportunities
+}
+relationship ManyToOne{
+Opportunities{compagnies} to Companies
+}
+relationship ManyToOne{
+Opportunities{contacts} to Contacts
+}
+relationship OneToMany{
+	Contacts{emails} to Emails
+    Companies{emails} to Emails
+}
+relationship OneToMany{
+	Contacts{phones} to Phones
+    Companies{emails} to Emails
+}
+
+
+dto * with mapstruct
+service * with serviceClass
+paginate * with pagination

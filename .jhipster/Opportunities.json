@@ -1,0 +1,78 @@
+{
+  "applications": "*",
+  "changelogDate": "20240331094300",
+  "clientRootFolder": "Prospectra",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "opportunities",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "prospectLevel",
+      "fieldType": "ProsOp",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "PROSPECT,OPPORTUNITIES"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "creationDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "model",
+      "fieldType": "MarketingModel",
+      "fieldValues": "B2C,B2B"
+    }
+  ],
+  "microserviceName": "Prospectra",
+  "name": "Opportunities",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "tasks",
+      "relationshipName": "tasks",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "notes",
+      "relationshipName": "notes",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "companies",
+      "relationshipName": "compagnies",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "contacts",
+      "relationshipName": "contacts",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "products",
+      "otherEntityRelationshipName": "opportunities",
+      "relationshipName": "products",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

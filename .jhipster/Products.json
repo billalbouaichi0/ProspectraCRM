@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20240331094600",
+  "clientRootFolder": "Prospectra",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "products",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "ProdServ",
+      "fieldValues": "PRODUCT,SERVICE"
+    },
+    {
+      "fieldName": "designation",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "microserviceName": "Prospectra",
+  "name": "Products",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "opportunities",
+      "otherEntityRelationshipName": "products",
+      "relationshipName": "opportunities",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

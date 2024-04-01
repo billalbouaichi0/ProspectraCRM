@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20240331094000",
+  "clientRootFolder": "Prospectra",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "phones",
+  "fields": [
+    {
+      "fieldName": "label",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String",
+      "fieldValidateRules": ["pattern"],
+      "fieldValidateRulesPattern": "^[0-9]+$"
+    }
+  ],
+  "microserviceName": "Prospectra",
+  "name": "Phones",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

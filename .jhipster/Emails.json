@@ -1,0 +1,26 @@
+{
+  "applications": "*",
+  "changelogDate": "20240331093900",
+  "clientRootFolder": "Prospectra",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "emails",
+  "fields": [
+    {
+      "fieldName": "label",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "mail",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "microserviceName": "Prospectra",
+  "name": "Emails",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

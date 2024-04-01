@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20240331094500",
+  "clientRootFolder": "Prospectra",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "pipelines",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "creationDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "owningUser",
+      "fieldType": "String"
+    }
+  ],
+  "microserviceName": "Prospectra",
+  "name": "Pipelines",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "stages",
+      "relationshipName": "stages",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

@@ -1,0 +1,36 @@
+{
+  "applications": "*",
+  "changelogDate": "20240331094900",
+  "clientRootFolder": "Prospectra",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "tags",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "microserviceName": "Prospectra",
+  "name": "Tags",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "contacts",
+      "otherEntityRelationshipName": "tags",
+      "relationshipName": "contacts",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "companies",
+      "otherEntityRelationshipName": "tags",
+      "relationshipName": "companies",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

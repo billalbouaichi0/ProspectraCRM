@@ -1,0 +1,88 @@
+{
+  "applications": "*",
+  "changelogDate": "20240331094200",
+  "clientRootFolder": "Prospectra",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "companies",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "50",
+      "fieldValidateRulesMinlength": "2"
+    },
+    {
+      "fieldName": "country",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "region",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "subRegions",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "codePostal",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "TypeCompany",
+      "fieldValues": "Professionnel,Particulier"
+    },
+    {
+      "fieldName": "secteurActivite",
+      "fieldType": "SecteurActivitie",
+      "fieldValues": "Prive,Public"
+    },
+    {
+      "fieldName": "juridiqueForm",
+      "fieldType": "FormeJuridique",
+      "fieldValues": "EURL,SARL,SNC,SPA,SCS,PERSONNE_PHYSIQUE,EUSARL,SSPA,SSARL,SCPA,EPIC,RC,EMIC,EPL,GROUPEMENT,AGENCE,SUCCURSALE"
+    },
+    {
+      "fieldName": "employeeNumber",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "caa",
+      "fieldType": "Double"
+    }
+  ],
+  "microserviceName": "Prospectra",
+  "name": "Companies",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "emails",
+      "relationshipName": "emails",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "tags",
+      "otherEntityRelationshipName": "companies",
+      "relationshipName": "tags",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "contacts",
+      "otherEntityRelationshipName": "companies",
+      "relationshipName": "contacts",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

@@ -1,0 +1,37 @@
+{
+  "applications": "*",
+  "changelogDate": "20240331094400",
+  "clientRootFolder": "Prospectra",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "stages",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique", "required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "order",
+      "fieldType": "Integer"
+    }
+  ],
+  "microserviceName": "Prospectra",
+  "name": "Stages",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "opportunities",
+      "relationshipName": "opportunities",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

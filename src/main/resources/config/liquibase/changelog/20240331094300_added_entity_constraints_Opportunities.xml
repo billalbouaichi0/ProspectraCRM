@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Opportunities.
+    -->
+    <changeSet id="20240331094300-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="compagnies_id"
+                                 baseTableName="opportunities"
+                                 constraintName="fk_opportunities__compagnies_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="companies"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="contacts_id"
+                                 baseTableName="opportunities"
+                                 constraintName="fk_opportunities__contacts_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contacts"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="opportunities_id"
+                                 baseTableName="rel_opportunities__products"
+                                 constraintName="fk_rel_opportunities__products__opportunities_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="opportunities"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="products_id"
+                                 baseTableName="rel_opportunities__products"
+                                 constraintName="fk_rel_opportunities__products__products_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="products"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="stages_id"
+                                 baseTableName="opportunities"
+                                 constraintName="fk_opportunities__stages_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="stages"
+                                 />
+    </changeSet>
+</databaseChangeLog>
